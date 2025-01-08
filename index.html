@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajwal Adhikari | Computer Engineering Student</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Background Image for Header */
+        header {
+            font-family: 'Montserrat', 'Lato', sans-serif;
+            margin: 0;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            background-image: url('assets/background-2426328.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        /* Body Style */
+        body {
+            font-family: 'Montserrat', 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #f4f4f4;
+        }
+
+        /* Top Navbar */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            z-index: 999;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .top-navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .top-navbar a:hover {
+            color: #ff6347;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: left 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-menu {
+            margin-top: 60px;
+        }
+
+        .sidebar-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 8px 20px;
+            border-radius: 8px;
+        }
+
+        .sidebar-menu a:hover {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: calc(20px + 1cm);
+            left: 20px;
+            z-index: 1100;
+            font-size: 1.5rem;
+            color: white;
+            background-color: #333;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar-toggle:hover {
+            background-color: #ff6347;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar .close-btn:hover {
+            color: #ff6347;
+        }
+
+        /* Welcome Section */
+        section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+            background-color: blue; /* Blue background for the heading */
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Space Between Social Media Handles */
+        header nav a {
+            margin: 0 20px; /* Increased spacing between social media handles */
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #ff6347;
+        }
+
+        .hover-effect {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-effect:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Navbar -->
+    <div class="top-navbar">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="family.html">Family</a>
+        <a href="friends.html">Friends</a>
+        <a href="solution.html">Solution</a>
+        <a href="books.html">Books</a>
+        <a href="past-papers.html">Past Papers</a>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">×</span>
+        <div class="sidebar-menu">
+            <a href="set-one.html">Set One</a>
+            <a href="set-two.html">Set Two</a>
+            <a href="set-three.html">Set Three</a>
+            <a href="set-four.html">Set Four</a>
+            <a href="set-five.html">Set Five</a>
+            <a href="set-six.html">Set Six</a>
+            <a href="set-seven.html">Set Seven</a>
+            <a href="set-eight.html">Set Eight</a>
+            <a href="set-nine.html">Set Nine</a>
+            <a href="set-ten.html">Set Ten</a>
+            <a href="set-eleven.html">Set Eleven</a>
+            <a href="set-twelve.html">Set Twelve</a>
+            <a href="set-thirteen.html">Set Thirteen</a>
+            <a href="set-fourteen.html">Set Fourteen</a>
+            <a href="set-fifteen.html">Set Fifteen</a>
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Header Section -->
+    <header>
+        <img class="hover-effect" src="brp.jpg" alt="Prajwal Adhikari" style="width: 250px; border-radius: 50%;">
+        <h1>Prajwal Adhikari</h1>
+        <p>Computer Engineering Student</p>
+        <nav>
+            <a href="https://www.youtube.com/@SubsnetPrajwal" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/prazoladekarey11" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://github.com/adprajwal11" target="_blank"><i class="fab fa-github"></i></a>
+        </nav>
+    </header>
+
+    <!-- Welcome Section -->
+    <section>
+        <h2>Welcome to the Platform</h2>
+        <p>
+            Welcome to Our Website! We're thrilled to have you here. Our mission is to provide you with valuable insights, exceptional resources, and a community where you can connect and grow. Whether you're exploring our content, shopping for unique products, or seeking inspiration, we hope you find exactly what you need. Thank you for visiting, and we look forward to embarking on this journey with you!
+        </p>
+    </section>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>Copyright 2025 @ Prajwal Adhikari</p>
+    </div>
+
+    <!-- Sidebar Toggle Script -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
