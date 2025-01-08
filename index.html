@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prajwal Adhikary | Computer Engineering Student</title>
+    <title>Prajwal Adhikari | Computer Engineering Student</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -21,7 +21,7 @@
     <style>
         /* Background Image for Header */
         header {
-            font-family: 'Montserrat', 'Lato', sans-serif;
+            font-family: 'Times New Roman', serif;
             margin: 0;
             padding: 100px 20px;
             text-align: center;
@@ -35,7 +35,7 @@
 
         /* Body Style */
         body {
-            font-family: 'Montserrat', 'Lato', sans-serif;
+            font-family: 'Times New Roman', serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -48,12 +48,12 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #000;
+            background-color: transparent; /* Fully transparent background */
             z-index: 999;
             padding: 10px 20px;
             display: flex;
             justify-content: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: none; /* Remove shadow for a cleaner look */
         }
 
         .top-navbar a {
@@ -61,17 +61,47 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.2rem;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, background-color 0.3s ease; /* Transition for background color */
         }
 
         .top-navbar a:hover {
-            color: #ff6347;
+            color: #000; /* Change text color on hover */
+            background-color: rgba(173, 216, 230, 0.5); /* Very light blue background */
+            border-radius: 5px; /* Rounded corners for the hover effect */
+        }
+
+        /* Sliding Notification Bar */
+        .notification-bar {
+            position: fixed;
+            top: 50px; /* Adjust based on navbar height */
+            left: 0;
+            width: 100%;
+            background-color: transparent; /* Set to transparent */
+            color: white; /* Change text color to dark red */
+            text-align: left;
+            padding: 10px;
+            font-size: 1.1rem;
+            white-space: nowrap; /* Prevents text from wrapping */
+            overflow: hidden; /* Hides overflow */
+            z-index: 998;
+            animation: slide 15s linear infinite; /* Animation duration */
+            opacity: 1; /* Initial opacity */
+            transition: opacity 0.3s ease; /* Smooth transition */
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(100%); /* Start off-screen to the right */
+            }
+            100% {
+                transform: translateX(-100%); /* Move off-screen to the left */
+            }
         }
 
         /* Sidebar */
         .sidebar {
             position: fixed;
-            top: 0;
+            top: 55px;
             left: -300px;
             width: 300px;
             height: 100%;
@@ -99,14 +129,14 @@
             text-decoration: none;
             margin: 15px 0;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease, background-color 0.3s ease; /* Transition for background color */
             padding: 8px 20px;
             border-radius: 8px;
         }
 
         .sidebar-menu a:hover {
-            background-color: #ff6347;
-            color: white;
+            background-color: rgba(173, 216, 230, 0.5); /* Very light blue background */
+            color: black; /* Change text color on hover */
         }
 
         .sidebar-toggle {
@@ -122,10 +152,14 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            opacity: 0; /* Initially hidden */
+            visibility: hidden; /* Initially hidden */
+            transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
         }
 
-        .sidebar-toggle:hover {
-            background-color: #ff6347;
+        .sidebar-toggle.show {
+            opacity: 1; /* Show icon */
+            visibility: visible; /* Show icon */
         }
 
         .sidebar .close-btn {
@@ -142,30 +176,63 @@
             color: #ff6347;
         }
 
-        /* Welcome Section */
-        section {
-            text-align: center;
+        /* Shiny Navy Blue Background Section */
+        .light-blue-section {
+            background: linear-gradient(135deg, #001f3f, #004080); /* Shiny navy blue gradient */
+            padding: 40px 20px; /* Padding for the section */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+        }
+
+        /* Techy Background for the Section */
+        .techy-background {
+            background-color: #e0f7fa; /* Light blue color */
+            background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+            background-size: 20px 20px; /* Pattern size */
+            padding: 40px 20px; /* Padding for the section */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        /* Topics Section */
+        .topics {
             padding: 60px 20px;
         }
 
-        section h2 {
-            margin-bottom: 20px;
-            background-color: blue; /* Blue background for the heading */
-            color: white;
-            padding: 10px;
+        .topic {
+            position: relative;
+            background-color: #f8d7da; /* Light reddish background */
+            border: 1px solid #ddd;
             border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            height: 100%; /* Ensures equal height for all columns */
+            overflow: hidden; /* Ensures no overflow */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
         }
 
-        section p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
+        .topic:hover {
+            transform: scale(1.03); /* Slightly enlarge */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+        }
+
+        .read-more {
+            display: block; /* Show link */
+            color: #007bff;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Message Section */
+        .message {
+            padding: 40px 20px;
+            background-color: #e7f0fa; /* Bluish background */
+            border-radius: 8px;
+            margin: 20px 0;
         }
 
         /* Space Between Social Media Handles */
-        header nav a {
-            margin: 0 20px; /* Increased spacing between social media handles */
+        .footer-nav a {
+            margin: 0 20px; /* Spacing between social media handles */
         }
 
         .footer {
@@ -191,69 +258,122 @@
         .hover-effect:hover {
             transform: scale(1.05);
         }
+
+        /* Increased Font Size */
+        .header-title {
+            font-size: 2.5rem; /* Adjust size as needed */
+        }
+
+        .header-subtitle {
+            font-size: 1.5rem; /* Slightly increased size */
+        }
     </style>
 </head>
 
 <body>
     <!-- Top Navbar -->
     <div class="top-navbar">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="family.html">Family</a>
-        <a href="friends.html">Friends</a>
-        <a href="solution.html">Solution</a>
-        <a href="books.html">Books</a>
-        <a href="past-papers.html">Past Papers</a>
+        <a href="index.html">Homepage</a>
+        <a href="contact.html">About</a>
+        <a href="family.html">Projects</a>
+        <a href="friends.html">Blogs/Articles</a>
+        <a href="solution.html">Feedback</a>
+        <a href="adminlogin.html">Admin Login</a> <!-- New Admin Login link -->
+    </div>
+
+    <!-- Sliding Notification Bar -->
+    <div class="notification-bar">
+        The website is being updated!!! Thanks for your patience.
     </div>
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <span class="close-btn" onclick="toggleSidebar()">×</span>
         <div class="sidebar-menu">
-            <a href="set-one.html">Set One</a>
-            <a href="set-two.html">Set Two</a>
-            <a href="set-three.html">Set Three</a>
-            <a href="set-four.html">Set Four</a>
-            <a href="set-five.html">Set Five</a>
-            <a href="set-six.html">Set Six</a>
-            <a href="set-seven.html">Set Seven</a>
-            <a href="set-eight.html">Set Eight</a>
-            <a href="set-nine.html">Set Nine</a>
-            <a href="set-ten.html">Set Ten</a>
-            <a href="set-eleven.html">Set Eleven</a>
-            <a href="set-twelve.html">Set Twelve</a>
-            <a href="set-thirteen.html">Set Thirteen</a>
-            <a href="set-fourteen.html">Set Fourteen</a>
-            <a href="set-fifteen.html">Set Fifteen</a>
+            <a href="set-one.html">Resources/Downloads</a>
+            <a href="set-two.html">Videos</a>
+            <a href="set-three.html">Leaderboard</a>
+            <a href="set-four.html">Analytic Dashboard</a>
         </div>
     </div>
 
     <!-- Sidebar Toggle Button -->
-    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    <button class="sidebar-toggle" id="sidebar-toggle" onclick="toggleSidebar()">☰</button>
 
     <!-- Header Section -->
     <header>
         <img class="hover-effect" src="brp.jpg" alt="Prajwal Adhikari" style="width: 250px; border-radius: 50%;">
-        <h1>Prajwal Adhikari</h1>
-        <p>Computer Engineering Student</p>
-        <nav>
-            <a href="https://www.youtube.com/@SubsnetPrajwal" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/prazoladekarey11" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://github.com/adprajwal11" target="_blank"><i class="fab fa-github"></i></a>
-        </nav>
+        <h1 class="header-title">Prajwal Adhikari</h1>
+        <p class="header-subtitle">Computer Engineering Student</p>
+        <p class="header-subtitle">Nuwakot, Nepal</p>
     </header>
 
-    <!-- Welcome Section -->
-    <section>
-        <h2>Welcome to the Platform Everyone</h2>
-        <p>
-            Welcome to Our Website everyone! We're thrilled to have you here. Our mission is to provide you with valuable insights, exceptional resources, and a community where you can connect and grow. Whether you're exploring our content, shopping for unique products, or seeking inspiration, we hope you find exactly what you need. Thank you for visiting, and we look forward to embarking on this journey with you!
-        </p>
-    </section>
+    <!-- Shiny Navy Blue Background Section -->
+    <div class="light-blue-section">
+        <!-- Techy Background Section -->
+        <div class="techy-background">
+            <!-- Topics Section -->
+            <section class="topics">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="topic">
+                                <h3>Introduction</h3>
+                                <p class="short-text">I am a passionate computer engineering student with a keen interest in software development and technology. <span class="more-text" style="display:none;">I enjoy learning new programming languages and applying them to solve real-world problems. In my free time, I contribute to open-source projects and engage in various tech communities. My goal is to become a proficient software engineer and make a positive impact through technology.</span></p>
+                                <span class="read-more" onclick="toggleReadMore(event)">Read More</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="topic">
+                                <h3>My Hobbies</h3>
+                                <p class="short-text">In addition to my studies, I have a wide range of hobbies that keep me engaged and motivated. <span class="more-text" style="display:none;">I love playing video games and exploring virtual worlds. I also enjoy reading science fiction novels and experimenting with new recipes in the kitchen. Traveling to new places and experiencing different cultures is another passion of mine. These hobbies help me relax and recharge for my studies.</span></p>
+                                <span class="read-more" onclick="toggleReadMore(event)">Read More</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="topic">
+                                <h3>My Inspiration</h3>
+                                <p class="short-text">My inspiration comes from various sources, but primarily from people who have made significant impacts in the tech industry. <span class="more-text" style="display:none;">I admire innovators like Elon Musk and Steve Jobs, who have changed the world through their visionary ideas. Their journeys motivate me to push my boundaries and strive for excellence in my own career.</span></p>
+                                <span class="read-more" onclick="toggleReadMore(event)">Read More</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Message from Admin Section -->
+            <section class="message">
+                <h3>Message from Admin</h3>
+                <p>Welcome to our platform! We are excited to have you here. Feel free to explore and connect with others. Your journey starts now!</p>
+            </section>
+        </div>
+    </div>
 
     <!-- Footer Section -->
     <div class="footer">
         <p>Copyright 2025 @ Prajwal Adhikari</p>
+        <h3>Contact Us</h3>
+        <nav class="footer-nav">
+            <a href="https://www.youtube.com/@SubsnetPrajwal" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/prazoladekarey11" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://github.com/adprajwal11" target="_blank"><i class="fab fa-github"></i></a>
+        </nav>
+    </div>
+
+    <!-- Admin Login Page (Separate Section) -->
+    <div id="admin" style="display: none;">
+        <h2>Admin Login</h2>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
     </div>
 
     <!-- Sidebar Toggle Script -->
@@ -262,6 +382,47 @@
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('active');
         }
+
+        function toggleReadMore(event) {
+            const topicElement = event.target.closest('.topic');
+            const shortText = topicElement.querySelector('.short-text');
+            const moreText = topicElement.querySelector('.more-text');
+            const link = event.target;
+
+            if (moreText.style.display === "none") {
+                moreText.style.display = "inline";
+                link.innerText = "Read Less";
+            } else {
+                moreText.style.display = "none";
+                link.innerText = "Read More";
+            }
+        }
+
+        let lastScrollTop = 0;
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const notificationBar = document.querySelector('.notification-bar');
+
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                sidebarToggle.style.opacity = '0';
+                notificationBar.style.opacity = '0';
+            } else {
+                sidebarToggle.style.opacity = '1';
+                notificationBar.style.opacity = '1';
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        document.addEventListener('mousemove', function(event) {
+            if (event.clientX < 100 && event.clientY < 100) {
+                sidebarToggle.classList.add('show');
+            } else {
+                sidebarToggle.classList.remove('show');
+            }
+        });
     </script>
 </body>
 
