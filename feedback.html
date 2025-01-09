@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(135deg, #ff5733, #337ab7);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            height: 100vh;
+            color: white;
+            position: relative; /* For positioning the button */
+        }
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            color: #007bff; /* Change text color for contrast */
+            border: none;
+            border-radius: 6px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+        }
+        .home-button:hover {
+            background-color: rgba(255, 255, 255, 1); /* Fully opaque on hover */
+            transform: scale(1.05);
+        }
+        .container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 70px; /* Push down the form */
+        }
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .feedback-message {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .required {
+            color: red;
+            margin-left: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: calc(100% - 50px); /* Decrease width for asterisk */
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: border-color 0.3s ease;
+            display: inline-block; /* Align asterisk inline */
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #ff5733;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        .error {
+            color: #ff5733;
+            font-size: 0.9em;
+        }
+        .note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<button class="home-button" onclick="returnToHomepage()">Return to Homepage</button>
+
+<div class="container">
+    <h1>Feedback Form</h1>
+    <div class="feedback-message">
+        We are always grateful for your feedback and opinions. It will be a path guide for us to improve ourselves.
+    </div>
+    <form id="feedbackForm">
+        <div class="form-group">
+            <label for="fieldOfFeedback">Field of Feedback:</label>
+            <select id="fieldOfFeedback" name="fieldOfFeedback" required>
+                <option value="" disabled selected>Area of Feedback*</option>
+                <option value="UI">UI</option>
+                <option value="Effects">Effects</option>
+                <option value="Overall Presentation">Overall Presentation</option>
+                <option value="Network Issues and Lagging">Network Issues and Lagging</option>
+            </select>
+            <span class="required">*</span>
+            <div id="fieldError" class="error"></div>
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name*" required>
+            <span class="required">*</span>
+            <div id="nameError" class="error"></div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email*" required>
+            <span class="required">*</span>
+            <div id="emailError" class="error"></div>
+        </div>
+        <div class="form-group">
+            <label for="message">Message (optional):</label>
+            <textarea id="message" name="message" rows="4" placeholder="Enter your feedback"></textarea>
+            <div id="messageError" class="error"></div>
+        </div>
+        <button type="submit">Submit Feedback</button>
+    </form>
+    <div class="note">
+        <span class="required">*</span> denotes that the field is compulsory.
+    </div>
+</div>
+
+<script>
+    function returnToHomepage() {
+        const button = document.querySelector('.home-button');
+        button.style.transform = 'scale(0.9)'; // Shrink the button
+        setTimeout(() => {
+            window.location.href = 'index.html'; // Redirect after animation
+        }, 300); // Delay for animation
+    }
+
+    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        let valid = true;
+
+        // Clear previous errors
+        document.getElementById('fieldError').textContent = '';
+        document.getElementById('nameError').textContent = '';
+        document.getElementById('emailError').textContent = '';
+        document.getElementById('messageError').textContent = '';
+
+        // Validate field of feedback
+        const fieldOfFeedback = document.getElementById('fieldOfFeedback').value;
+        if (fieldOfFeedback === '') {
+            document.getElementById('fieldError').textContent = 'Please select a field of feedback.';
+            valid = false;
+        }
+
+        // Validate name
+        const name = document.getElementById('name').value;
+        if (name.trim() === '') {
+            document.getElementById('nameError').textContent = 'Name is required.';
+            valid = false;
+        }
+
+        // Validate email
+        const email = document.getElementById('email').value;
+        if (email.trim() === '') {
+            document.getElementById('emailError').textContent = 'Email is required.';
+            valid = false;
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            document.getElementById('emailError').textContent = 'Email is invalid.';
+            valid = false;
+        }
+
+        if (valid) {
+            alert('Thank you for your feedback!');
+            // Here you can add code to send the feedback to your server
+            document.getElementById('feedbackForm').reset();
+        }
+    });
+</script>
+
+</body>
+</html>
