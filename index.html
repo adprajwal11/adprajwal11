@@ -26,7 +26,7 @@
             padding: 100px 20px;
             text-align: center;
             color: white;
-            background-image: url('assets/background-2426328.jpg');
+            background-image: url('assets/bacg.jpeg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -48,61 +48,64 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: transparent; /* Fully transparent background */
+            background-color: transparent;
             z-index: 999;
             padding: 10px 20px;
             display: flex;
             justify-content: center;
-            box-shadow: none; /* Remove shadow for a cleaner look */
-            transition: transform 0.3s ease; /* For sliding effect */
+            box-shadow: none;
+            transition: opacity 0.4s ease;
         }
 
         .top-navbar a {
-            color: white;
+            background-color: rgba(173, 216, 230, 0.5);
+            border-radius: 5px;
+            padding: 8px 15px;
+            margin: 0 10px;
+            color: #333;
             text-decoration: none;
-            margin: 0 10px; /* Reduced margin for closer spacing */
-            font-size: 1rem; /* Decreased font size */
-            transition: color 0.3s ease, background-color 0.3s ease; /* Transition for background color */
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .top-navbar a:hover {
-            color: #000; /* Change text color on hover */
-            background-color: rgba(173, 216, 230, 0.5); /* Very light blue background */
-            border-radius: 5px; /* Rounded corners for the hover effect */
+            background-color: rgba(173, 216, 230, 0.7);
+            color: #000;
+            transform: scale(1.05);
         }
 
         /* Sliding Notification Bar */
         .notification-bar {
             position: fixed;
-            top: 50px; /* Adjust based on navbar height */
+            top: 50px;
             left: 0;
             width: 100%;
-            background-color: transparent; /* Set to transparent */
-            color: white; /* Change text color to dark red */
+            background-color: transparent;
+            color: darkred;
             text-align: left;
             padding: 10px;
             font-size: 1.1rem;
-            white-space: nowrap; /* Prevents text from wrapping */
-            overflow: hidden; /* Hides overflow */
+            white-space: nowrap;
+            overflow: hidden;
             z-index: 998;
-            animation: slide 15s linear infinite; /* Animation duration */
-            opacity: 1; /* Initial opacity */
-            transition: opacity 0.3s ease; /* Smooth transition */
+            animation: slide 15s linear infinite;
+            opacity: 1;
+            transition: opacity 0.4s ease;
         }
 
         @keyframes slide {
             0% {
-                transform: translateX(100%); /* Start off-screen to the right */
+                transform: translateX(100%);
             }
             100% {
-                transform: translateX(-100%); /* Move off-screen to the left */
+                transform: translateX(-100%);
             }
         }
 
         /* Sidebar */
         .sidebar {
             position: fixed;
-            top: 55px;
+            top: 0;
             left: -300px;
             width: 300px;
             height: 100%;
@@ -130,37 +133,28 @@
             text-decoration: none;
             margin: 15px 0;
             font-size: 0.9rem;
-            transition: all 0.3s ease, background-color 0.3s ease; /* Transition for background color */
+            transition: all 0.3s ease, background-color 0.3s ease;
             padding: 8px 20px;
             border-radius: 8px;
         }
 
         .sidebar-menu a:hover {
-            background-color: rgba(173, 216, 230, 0.5); /* Very light blue background */
-            color: black; /* Change text color on hover */
+            background-color: rgba(173, 216, 230, 0.5);
+            color: black;
         }
 
         .sidebar-toggle {
             position: fixed;
-            top: calc(20px + 1cm);
+            top: 20px;
             left: 20px;
             z-index: 1100;
             font-size: 1.5rem;
             color: white;
-            background-color: #333;
+            background-color: transparent;
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            opacity: 0; /* Initially hidden */
-            visibility: hidden; /* Initially hidden */
-            transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
-        }
-
-        .sidebar-toggle.show {
-            opacity: 1; /* Show icon */
-            visibility: visible; /* Show icon */
         }
 
         .sidebar .close-btn {
@@ -179,19 +173,19 @@
 
         /* Shiny Navy Blue Background Section */
         .light-blue-section {
-            background: linear-gradient(135deg, #001f3f, #004080); /* Shiny navy blue gradient */
-            padding: 40px 20px; /* Padding for the section */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+            background: linear-gradient(135deg, #001f3f, #004080);
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* Techy Background for the Section */
         .techy-background {
-            background-color: #e0f7fa; /* Light blue color */
+            background-color: #e0f7fa;
             background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
-            background-size: 20px 20px; /* Pattern size */
-            padding: 40px 20px; /* Padding for the section */
-            border-radius: 8px; /* Rounded corners */
+            background-size: 20px 20px;
+            padding: 40px 20px;
+            border-radius: 8px;
         }
 
         /* Topics Section */
@@ -201,23 +195,23 @@
 
         .topic {
             position: relative;
-            background-color: #f8d7da; /* Light reddish background */
+            background-color: #f8d7da;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            height: 100%; /* Ensures equal height for all columns */
-            overflow: hidden; /* Ensures no overflow */
-            transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+            height: 100%;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .topic:hover {
-            transform: scale(1.03); /* Slightly enlarge */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .read-more {
-            display: block; /* Show link */
+            display: block;
             color: #007bff;
             cursor: pointer;
             margin-top: 10px;
@@ -226,14 +220,14 @@
         /* Message Section */
         .message {
             padding: 40px 20px;
-            background-color: #e7f0fa; /* Bluish background */
+            background-color: #e7f0fa;
             border-radius: 8px;
             margin: 20px 0;
         }
 
         /* Space Between Social Media Handles */
         .footer-nav a {
-            margin: 0 20px; /* Spacing between social media handles */
+            margin: 0 20px;
         }
 
         .footer {
@@ -262,11 +256,11 @@
 
         /* Increased Font Size */
         .header-title {
-            font-size: 2.5rem; /* Adjust size as needed */
+            font-size: 2.5rem;
         }
 
         .header-subtitle {
-            font-size: 1.5rem; /* Slightly increased size */
+            font-size: 1.5rem;
         }
     </style>
 </head>
@@ -278,7 +272,7 @@
         <a href="about.html">About</a>
         <a href="project.html">Projects</a>
         <a href="feedback.html">Feedback</a>
-        <a href="adminlogin.html">Admin Login</a> <!-- New Admin Login link -->
+        <a href="adminlogin.html">Admin Login</a>
     </div>
 
     <!-- Sliding Notification Bar -->
@@ -310,7 +304,6 @@
 
     <!-- Shiny Navy Blue Background Section -->
     <div class="light-blue-section">
-        <!-- Techy Background Section -->
         <div class="techy-background">
             <!-- Topics Section -->
             <section class="topics">
@@ -341,12 +334,40 @@
                 </div>
             </section>
 
+            <!-- Feedback Form Section -->
+            <div class="message">
+                <h3>Feedback</h3>
+                <form id="feedbackForm" action="submit_feedback.php" method="POST">
+                    <div class="mb-3">
+                        <label for="feedback" class="form-label">Your Feedback</label>
+                        <textarea class="form-control" id="feedback" name="feedback" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                </form>
+            </div>
+
             <!-- Message from Admin Section -->
             <section class="message">
                 <h3>Message from Admin</h3>
                 <p>Welcome to our platform! We are excited to have you here. Feel free to explore and connect with others. This website is at the initial phase of construction. Various new features will be available shortly.</p>
             </section>
         </div>
+    </div>
+
+    <!-- Admin Login Page -->
+    <div id="admin" style="display: none;">
+        <h2>Admin Login</h2>
+        <form id="loginForm" action="admin_login.php" method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
     </div>
 
     <!-- Footer Section -->
@@ -360,23 +381,7 @@
         </nav>
     </div>
 
-    <!-- Admin Login Page (Separate Section) -->
-    <div id="admin" style="display: none;">
-        <h2>Admin Login</h2>
-        <form id="loginForm">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-    </div>
-
-    <!-- Sidebar Toggle Script -->
+    <!-- JavaScript -->
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
@@ -401,15 +406,16 @@
         let lastScrollTop = 0;
         const sidebarToggle = document.getElementById('sidebar-toggle');
         const notificationBar = document.querySelector('.notification-bar');
+        const topNavbar = document.getElementById('top-navbar');
 
         window.addEventListener('scroll', function() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (scrollTop > lastScrollTop) {
-                sidebarToggle.style.opacity = '0';
+            if (scrollTop > 100) {
+                topNavbar.style.opacity = '0';
                 notificationBar.style.opacity = '0';
             } else {
-                sidebarToggle.style.opacity = '1';
+                topNavbar.style.opacity = '1';
                 notificationBar.style.opacity = '1';
             }
 
@@ -418,22 +424,17 @@
 
         document.addEventListener('mousemove', function(event) {
             if (event.clientX < 100 && event.clientY < 100) {
-                sidebarToggle.classList.add('show');
-            } else {
-                sidebarToggle.classList.remove('show');
+                sidebarToggle.style.opacity = '1';
             }
         });
 
-        // Manual sliding for the top navbar
         let isDragging = false;
         let startX;
-
-        const topNavbar = document.getElementById('top-navbar');
 
         topNavbar.addEventListener('mousedown', (e) => {
             isDragging = true;
             startX = e.clientX;
-            topNavbar.style.transition = 'none'; // Disable transition while dragging
+            topNavbar.style.transition = 'none';
         });
 
         document.addEventListener('mousemove', (e) => {
@@ -444,8 +445,8 @@
 
         document.addEventListener('mouseup', () => {
             isDragging = false;
-            topNavbar.style.transition = 'transform 0.3s ease'; // Re-enable transition
-            topNavbar.style.transform = 'translateX(0)'; // Reset position after drag
+            topNavbar.style.transition = 'opacity 0.4s ease';
+            topNavbar.style.transform = 'translateX(0)';
         });
     </script>
 </body>
