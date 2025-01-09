@@ -60,8 +60,8 @@
         .top-navbar a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2rem;
+            margin: 0 10px; /* Reduced margin for closer spacing */
+            font-size: 1rem; /* Decreased font size */
             transition: color 0.3s ease, background-color 0.3s ease; /* Transition for background color */
         }
 
@@ -445,7 +445,6 @@
         document.addEventListener('mouseup', () => {
             isDragging = false;
             topNavbar.style.transition = 'transform 0.3s ease'; // Re-enable transition
-            // Snap to position or handle boundary checks if needed
             topNavbar.style.transform = 'translateX(0)'; // Reset position after drag
         });
     </script>
