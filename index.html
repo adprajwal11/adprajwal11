@@ -54,6 +54,7 @@
             display: flex;
             justify-content: center;
             box-shadow: none; /* Remove shadow for a cleaner look */
+            transition: transform 0.3s ease; /* For sliding effect */
         }
 
         .top-navbar a {
@@ -272,12 +273,12 @@
 
 <body>
     <!-- Top Navbar -->
-    <div class="top-navbar">
+    <div class="top-navbar" id="top-navbar">
         <a href="index.html">Homepage</a>
         <a href="about.html">About</a>
-        <a href="family.html">Projects</a>
+        <a href="project.html">Projects</a>
         <a href="friends.html">Blogs/Articles</a>
-        <a href="solution.html">Feedback</a>
+        <a href="feedback.html">Feedback</a>
         <a href="adminlogin.html">Admin Login</a> <!-- New Admin Login link -->
     </div>
 
@@ -319,21 +320,21 @@
                         <div class="col-md-4">
                             <div class="topic">
                                 <h3>Introduction</h3>
-                                <p class="short-text">I am a passionate computer engineering student with a keen interest in software development and technology. <span class="more-text" style="display:none;">I enjoy learning new programming languages and applying them to solve real-world problems. In my free time, I contribute to open-source projects and engage in various tech communities. My goal is to become a proficient software engineer and make a positive impact through technology.</span></p>
+                                <p class="short-text">I am a passionate computer engineering student with a keen interest in software development and technology. I also cherish learning about networking and mainly in the ethical hacking concepts of networking. <span class="more-text" style="display:none;">I enjoy learning new programming languages and applying them to solve real-world problems. In my free time, I contribute to open-source projects and engage in various tech communities. My goal is to become a proficient software engineer and make a positive impact through technology.</span></p>
                                 <span class="read-more" onclick="toggleReadMore(event)">Read More</span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="topic">
                                 <h3>My Hobbies</h3>
-                                <p class="short-text">In addition to my studies, I have a wide range of hobbies that keep me engaged and motivated. <span class="more-text" style="display:none;">I love playing video games and exploring virtual worlds. I also enjoy reading science fiction novels and experimenting with new recipes in the kitchen. Traveling to new places and experiencing different cultures is another passion of mine. These hobbies help me relax and recharge for my studies.</span></p>
+                                <p class="short-text">In addition to my studies, I have a wide range of hobbies that keep me engaged and motivated. like, I enjoy playing chess and carrom. Cricket is one of my favourite sport that I get get delighted playing. <span class="more-text" style="display:none;">I love playing video games and exploring virtual worlds. I also enjoy reading science fiction novels and experimenting with new recipes in the kitchen. Traveling to new places and experiencing different cultures is another passion of mine. These hobbies help me relax and recharge for my studies.</span></p>
                                 <span class="read-more" onclick="toggleReadMore(event)">Read More</span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="topic">
                                 <h3>My Inspiration</h3>
-                                <p class="short-text">My inspiration comes from various sources, but primarily from people who have made significant impacts in the tech industry. <span class="more-text" style="display:none;">I admire innovators like Elon Musk and Steve Jobs, who have changed the world through their visionary ideas. Their journeys motivate me to push my boundaries and strive for excellence in my own career.</span></p>
+                                <p class="short-text">My inspiration comes from various sources, but mainly from my family members and friends. Additionally from those people who have made significant impacts in the tech industry. <span class="more-text" style="display:none;">I admire innovators like Elon Musk and Steve Jobs, who have changed the world through their visionary ideas. Their journeys motivate me to push my boundaries and strive for excellence in my own career.</span></p>
                                 <span class="read-more" onclick="toggleReadMore(event)">Read More</span>
                             </div>
                         </div>
@@ -344,14 +345,14 @@
             <!-- Message from Admin Section -->
             <section class="message">
                 <h3>Message from Admin</h3>
-                <p>Welcome to our platform! We are excited to have you here. Feel free to explore and connect with others. Your journey starts now!</p>
+                <p>Welcome to our platform! We are excited to have you here. Feel free to explore and connect with others. This website is at the initial phase of construction. Various new features will be available shortly.</p>
             </section>
         </div>
     </div>
 
     <!-- Footer Section -->
     <div class="footer">
-        <p>Copyright 2025 @ Prajwal Adhikari</p>
+        <p>Copyright Reserved 2025 @ Prajwal Adhikari</p>
         <h3>Contact Us</h3>
         <nav class="footer-nav">
             <a href="https://www.youtube.com/@SubsnetPrajwal" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -422,6 +423,31 @@
             } else {
                 sidebarToggle.classList.remove('show');
             }
+        });
+
+        // Manual sliding for the top navbar
+        let isDragging = false;
+        let startX;
+
+        const topNavbar = document.getElementById('top-navbar');
+
+        topNavbar.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            topNavbar.style.transition = 'none'; // Disable transition while dragging
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const xOffset = e.clientX - startX;
+            topNavbar.style.transform = `translateX(${xOffset}px)`;
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            topNavbar.style.transition = 'transform 0.3s ease'; // Re-enable transition
+            // Snap to position or handle boundary checks if needed
+            topNavbar.style.transform = 'translateX(0)'; // Reset position after drag
         });
     </script>
 </body>
