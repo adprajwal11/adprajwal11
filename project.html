@@ -9,7 +9,7 @@
             font-family: 'Times New Roman', serif;
             margin: 0;
             padding: 20px;
-            background-image: url('assets/background-2426328.jpg'); /* Custom background image */
+            background-image: url('assets/bacg.jpeg'); /* Custom background image */
             background-size: cover; /* Cover the entire viewport */
             background-repeat: no-repeat; /* Do not repeat the image */
             color: #333;
@@ -78,7 +78,10 @@
             text-align: center;
             margin-top: 40px;
             font-size: 0.9em;
-            color: #000; /* Black text for footer */
+            color: #fff; /* White text for footer */
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            padding: 10px 0; /* Padding for footer */
+            border-radius: 10px; /* Rounded corners */
         }
         .project-link {
             text-align: center;
@@ -86,11 +89,20 @@
             font-weight: bold;
         }
         .project-link a {
-            color: #007bff;
+            color: rgba(255, 255, 255, 0.9); /* Dark white color */
             text-decoration: none;
+            font-size: 1.2em; /* Increased font size */
         }
         .project-link a:hover {
             text-decoration: underline;
+            color: rgba(255, 255, 255, 1); /* Solid white on hover */
+        }
+        .custom-background {
+            background: rgba(0, 123, 255, 0.8); /* Semi-transparent blue background */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Padding for content */
+            margin: 20px 0; /* Margin to separate it from other sections */
+            text-align: center; /* Center the text */
         }
     </style>
 </head>
@@ -104,32 +116,21 @@
     <div class="project-description">
         <div class="project-text">
             <h2>Project Description</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. 
-               Curabitur venenatis, nisl in bibendum commodo, sapien justo cursus urna, in dignissim purus 
-               nisi a libero. Integer euismod, nisi id pharetra gravida, nulla eros egestas nulla, a bibendum 
-               massa libero eu metus. Quisque sagittis dapibus arcu, a cursus arcu venenatis vel. 
-               Aenean nec orci vitae est consectetur efficitur nec vitae erat. This section now extends all the way to the left edge of the page.</p>
+            <p>The CV generator is a project that I worked upon when I was in the first year of my Bachelors Degree. It was one of my Pioneer project. We prepared a program that generates a resume when we enter certain details of ours. Who use programming to achieve this and ensured that the project will beneficial for the beginners as well as the intermediate who are struggling to generate decent and appropriate resume for their profile.</p>
         </div>
         <div class="project-image">
-            <img src="assets/MYBACKGROUND.jpeg" alt="Project Image">
+            <img src="assets/CCCCVVVVV.jpeg" alt="Project Image">
         </div>
     </div>
 
     <div class="additional-content">
-        <p>Continuing the description of the project here. Sed ut perspiciatis unde omnis iste natus error 
-           sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo 
-           inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam 
-           voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores 
-           eos qui ratione voluptatem sequi nesciunt.</p>
-        <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, 
-           nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea 
-           voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo 
-           voluptas nulla pariatur?</p>
+        <p>In the initial stages of our programming journey, we aimed to create a foundational program that outputs a well-structured and organized text-based CV format. As we delved deeper into the project, we recognized the potential for enhancement. This realization led us to develop a comprehensive application capable of generating a complete CV format. Our program not only produces a polished textual template but also incorporates visual elements, such as images, culminating in a refined and aesthetically pleasing CV for users.</p>
+        <p>The implementation was executed in C++. Throughout the development process, we encountered several challenges, particularly in managing external libraries. We faced difficulties with installation on Windows, which sometimes resulted in program termination due to an inadequate environment for code execution. In contrast, transitioning to a Linux environment significantly streamlined our workflow. The simplicity of installing external libraries in Linux—with just a single command—greatly facilitated our development efforts. Attached is a sample of the resume generated by our program, and you can access the complete source code through the provided link below:</p>
     </div>
 
-    <div class="project-link">
+    <div class="project-link custom-background">
         <p>So, visit the project details:</p>
-        
+        <a href="https://drive.google.com/file/d/1AgEPcS6ySRqlwEo4UndsWqVnu2K1TKMn/view?usp=drive_link" target="_blank">Get the code here:</a>
     </div>
 
     <footer>
